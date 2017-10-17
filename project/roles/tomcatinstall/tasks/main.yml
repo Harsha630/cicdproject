@@ -54,5 +54,5 @@
 
 - name: Downloading artifact
   get_url:
-    url: http://34.207.112.95:8081/nexus-2.14.5-02/content/repositories/releases/org/sonatype/mavenbook/simpleweb/simple-webapp/1.5/simple-webapp-1.5.war
+    url: http://192.168.221.129:8085/nexus/service/local/repositories/releases/content/org/sonatype/com/simplewebapp/1.0/simplewebapp-1.0.war.md5
     dest: /usr/share/tomcat/webapps/

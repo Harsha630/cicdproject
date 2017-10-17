@@ -562,3 +562,50 @@
 2017-10-16 20:14:37,930 p=2150 u=root |  PLAY RECAP *********************************************************************************************************
 2017-10-16 20:14:37,930 p=2150 u=root |  34.212.242.189             : ok=12   changed=11   unreachable=0    failed=1   
 2017-10-16 20:14:37,930 p=2150 u=root |  localhost                  : ok=4    changed=2    unreachable=0    failed=0   
+2017-10-17 06:42:46,780 p=1902 u=root |  PLAY [Spinup Instance] ************************************************************************
+2017-10-17 06:42:46,802 p=1902 u=root |  TASK [Gathering Facts] ************************************************************************
+2017-10-17 06:42:47,289 p=1902 u=root |  ok: [localhost]
+2017-10-17 06:42:47,295 p=1902 u=root |  TASK [instance : Launching an EC2 Instance] ***************************************************
+2017-10-17 06:43:09,438 p=1902 u=root |  changed: [localhost -> localhost]
+2017-10-17 06:43:09,441 p=1902 u=root |  TASK [instance : Add all instance public IPs to host group] ***********************************
+2017-10-17 06:43:09,464 p=1902 u=root |  changed: [localhost] => (item={u'kernel': None, u'root_device_type': u'ebs', u'private_dns_name': u'ip-172-31-23-228.us-west-2.compute.internal', u'public_ip': u'34.215.196.7', u'private_ip': u'172.31.23.228', u'id': u'i-02f830e19f31af106', u'ebs_optimized': False, u'state': u'running', u'virtualization_type': u'hvm', u'architecture': u'x86_64', u'ramdisk': None, u'block_device_mapping': {u'/dev/sda1': {u'status': u'attached', u'delete_on_termination': True, u'volume_id': u'vol-0060d4b624cddd323'}}, u'key_name': u'ec2key', u'image_id': u'ami-9fa343e7', u'tenancy': u'default', u'groups': {u'sg-6f41c215': u'default'}, u'public_dns_name': u'ec2-34-215-196-7.us-west-2.compute.amazonaws.com', u'state_code': 16, u'tags': {}, u'placement': u'us-west-2a', u'ami_launch_index': u'0', u'dns_name': u'ec2-34-215-196-7.us-west-2.compute.amazonaws.com', u'region': u'us-west-2', u'launch_time': u'2017-10-17T06:42:48.000Z', u'instance_type': u't2.micro', u'root_device_name': u'/dev/sda1', u'hypervisor': u'xen'})
+2017-10-17 06:43:09,473 p=1902 u=root |  TASK [instance : Wait for SSH to come up] *****************************************************
+2017-10-17 06:44:09,733 p=1902 u=root |  ok: [localhost -> localhost] => (item={u'kernel': None, u'root_device_type': u'ebs', u'private_dns_name': u'ip-172-31-23-228.us-west-2.compute.internal', u'public_ip': u'34.215.196.7', u'private_ip': u'172.31.23.228', u'id': u'i-02f830e19f31af106', u'ebs_optimized': False, u'state': u'running', u'virtualization_type': u'hvm', u'architecture': u'x86_64', u'ramdisk': None, u'block_device_mapping': {u'/dev/sda1': {u'status': u'attached', u'delete_on_termination': True, u'volume_id': u'vol-0060d4b624cddd323'}}, u'key_name': u'ec2key', u'image_id': u'ami-9fa343e7', u'tenancy': u'default', u'groups': {u'sg-6f41c215': u'default'}, u'public_dns_name': u'ec2-34-215-196-7.us-west-2.compute.amazonaws.com', u'state_code': 16, u'tags': {}, u'placement': u'us-west-2a', u'ami_launch_index': u'0', u'dns_name': u'ec2-34-215-196-7.us-west-2.compute.amazonaws.com', u'region': u'us-west-2', u'launch_time': u'2017-10-17T06:42:48.000Z', u'instance_type': u't2.micro', u'root_device_name': u'/dev/sda1', u'hypervisor': u'xen'})
+2017-10-17 06:44:09,741 p=1902 u=root |  PLAY [Install Tomcat & Deploy files] **********************************************************
+2017-10-17 06:44:09,746 p=1902 u=root |  TASK [tomcatinstall : Install Java 1.7] *******************************************************
+2017-10-17 06:44:40,868 p=1902 u=root |  changed: [34.215.196.7]
+2017-10-17 06:44:40,871 p=1902 u=root |  TASK [tomcatinstall : add group "tomcat"] *****************************************************
+2017-10-17 06:44:41,284 p=1902 u=root |  changed: [34.215.196.7]
+2017-10-17 06:44:41,286 p=1902 u=root |  TASK [tomcatinstall : add user "tomcat"] ******************************************************
+2017-10-17 06:44:41,718 p=1902 u=root |  changed: [34.215.196.7]
+2017-10-17 06:44:41,720 p=1902 u=root |  TASK [tomcatinstall : Download Tomcat] ********************************************************
+2017-10-17 06:44:45,479 p=1902 u=root |  changed: [34.215.196.7]
+2017-10-17 06:44:45,481 p=1902 u=root |  TASK [tomcatinstall : Extract archive] ********************************************************
+2017-10-17 06:44:45,988 p=1902 u=root |   [WARNING]: Consider using unarchive module rather than running tar
+
+2017-10-17 06:44:45,989 p=1902 u=root |  changed: [34.215.196.7]
+2017-10-17 06:44:45,991 p=1902 u=root |  TASK [tomcatinstall : Symlink install directory] **********************************************
+2017-10-17 06:44:46,339 p=1902 u=root |  changed: [34.215.196.7]
+2017-10-17 06:44:46,342 p=1902 u=root |  TASK [tomcatinstall : Change ownership of Tomcat installation] ********************************
+2017-10-17 06:44:46,853 p=1902 u=root |  changed: [34.215.196.7]
+2017-10-17 06:44:46,856 p=1902 u=root |  TASK [tomcatinstall : Configure Tomcat server] ************************************************
+2017-10-17 06:44:47,569 p=1902 u=root |  changed: [34.215.196.7]
+2017-10-17 06:44:47,571 p=1902 u=root |  TASK [tomcatinstall : Configure Tomcat users] *************************************************
+2017-10-17 06:44:48,049 p=1902 u=root |  changed: [34.215.196.7]
+2017-10-17 06:44:48,051 p=1902 u=root |  TASK [tomcatinstall : Install Tomcat init script] *********************************************
+2017-10-17 06:44:48,534 p=1902 u=root |  changed: [34.215.196.7]
+2017-10-17 06:44:48,537 p=1902 u=root |  TASK [tomcatinstall : Start Tomcat] ***********************************************************
+2017-10-17 06:44:49,434 p=1902 u=root |   [WARNING]: The service (tomcat) is actually an init script but the system is managed by
+systemd
+
+2017-10-17 06:44:49,434 p=1902 u=root |  changed: [34.215.196.7]
+2017-10-17 06:44:49,437 p=1902 u=root |  TASK [tomcatinstall : wait for tomcat to start] ***********************************************
+2017-10-17 06:44:50,938 p=1902 u=root |  ok: [34.215.196.7]
+2017-10-17 06:44:50,940 p=1902 u=root |  TASK [tomcatinstall : Downloading artifact] ***************************************************
+2017-10-17 06:45:03,188 p=1902 u=root |  fatal: [34.215.196.7]: FAILED! => {"changed": false, "dest": "/usr/share/tomcat/webapps/", "failed": true, "gid": 1001, "group": "tomcat", "mode": "0755", "msg": "Request failed: <urlopen error timed out>", "owner": "tomcat", "secontext": "unconfined_u:object_r:usr_t:s0", "size": 81, "state": "directory", "uid": 1001, "url": "http://192.168.221.129:8085/nexus/service/local/repositories/releases/content/org/sonatype/com/simplewebapp/1.0/simplewebapp-1.0.war"}
+2017-10-17 06:45:03,188 p=1902 u=root |  RUNNING HANDLER [tomcatinstall : restart tomcat] **********************************************
+2017-10-17 06:45:03,189 p=1902 u=root |  	to retry, use: --limit @/home/centos/ansible_demo/cd_project/project/site.retry
+
+2017-10-17 06:45:03,189 p=1902 u=root |  PLAY RECAP ************************************************************************************
+2017-10-17 06:45:03,189 p=1902 u=root |  34.215.196.7               : ok=12   changed=11   unreachable=0    failed=1   
+2017-10-17 06:45:03,189 p=1902 u=root |  localhost                  : ok=4    changed=2    unreachable=0    failed=0   

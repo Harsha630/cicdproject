@@ -609,3 +609,188 @@ systemd
 2017-10-17 06:45:03,189 p=1902 u=root |  PLAY RECAP ************************************************************************************
 2017-10-17 06:45:03,189 p=1902 u=root |  34.215.196.7               : ok=12   changed=11   unreachable=0    failed=1   
 2017-10-17 06:45:03,189 p=1902 u=root |  localhost                  : ok=4    changed=2    unreachable=0    failed=0   
+2017-10-17 22:16:01,380 p=2771 u=root |  PLAY [Spinup Instance] ***********************************************************************
+2017-10-17 22:16:01,404 p=2771 u=root |  TASK [Gathering Facts] ***********************************************************************
+2017-10-17 22:16:01,867 p=2771 u=root |  ok: [localhost]
+2017-10-17 22:16:01,873 p=2771 u=root |  TASK [instance : Launching an EC2 Instance] **************************************************
+2017-10-17 22:16:23,554 p=2771 u=root |  changed: [localhost -> localhost]
+2017-10-17 22:16:23,557 p=2771 u=root |  TASK [instance : Add all instance public IPs to host group] **********************************
+2017-10-17 22:16:23,581 p=2771 u=root |  changed: [localhost] => (item={u'kernel': None, u'root_device_type': u'ebs', u'private_dns_name': u'ip-172-31-22-45.us-west-2.compute.internal', u'public_ip': u'54.68.99.108', u'private_ip': u'172.31.22.45', u'id': u'i-0b56a4fd335ded673', u'ebs_optimized': False, u'state': u'running', u'virtualization_type': u'hvm', u'architecture': u'x86_64', u'ramdisk': None, u'block_device_mapping': {u'/dev/sda1': {u'status': u'attached', u'delete_on_termination': True, u'volume_id': u'vol-0badbe3e185fac6a9'}}, u'key_name': u'ec2key', u'image_id': u'ami-9fa343e7', u'tenancy': u'default', u'groups': {u'sg-6f41c215': u'default'}, u'public_dns_name': u'ec2-54-68-99-108.us-west-2.compute.amazonaws.com', u'state_code': 16, u'tags': {}, u'placement': u'us-west-2a', u'ami_launch_index': u'0', u'dns_name': u'ec2-54-68-99-108.us-west-2.compute.amazonaws.com', u'region': u'us-west-2', u'launch_time': u'2017-10-17T22:16:02.000Z', u'instance_type': u't2.micro', u'root_device_name': u'/dev/sda1', u'hypervisor': u'xen'})
+2017-10-17 22:16:23,589 p=2771 u=root |  TASK [instance : Wait for SSH to come up] ****************************************************
+2017-10-17 22:17:23,859 p=2771 u=root |  ok: [localhost -> localhost] => (item={u'kernel': None, u'root_device_type': u'ebs', u'private_dns_name': u'ip-172-31-22-45.us-west-2.compute.internal', u'public_ip': u'54.68.99.108', u'private_ip': u'172.31.22.45', u'id': u'i-0b56a4fd335ded673', u'ebs_optimized': False, u'state': u'running', u'virtualization_type': u'hvm', u'architecture': u'x86_64', u'ramdisk': None, u'block_device_mapping': {u'/dev/sda1': {u'status': u'attached', u'delete_on_termination': True, u'volume_id': u'vol-0badbe3e185fac6a9'}}, u'key_name': u'ec2key', u'image_id': u'ami-9fa343e7', u'tenancy': u'default', u'groups': {u'sg-6f41c215': u'default'}, u'public_dns_name': u'ec2-54-68-99-108.us-west-2.compute.amazonaws.com', u'state_code': 16, u'tags': {}, u'placement': u'us-west-2a', u'ami_launch_index': u'0', u'dns_name': u'ec2-54-68-99-108.us-west-2.compute.amazonaws.com', u'region': u'us-west-2', u'launch_time': u'2017-10-17T22:16:02.000Z', u'instance_type': u't2.micro', u'root_device_name': u'/dev/sda1', u'hypervisor': u'xen'})
+2017-10-17 22:17:23,867 p=2771 u=root |  PLAY [Install Tomcat & Deploy files] *********************************************************
+2017-10-17 22:17:23,873 p=2771 u=root |  TASK [tomcatinstall : Install Java 1.7] ******************************************************
+2017-10-17 22:17:59,761 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:17:59,763 p=2771 u=root |  TASK [tomcatinstall : add group "tomcat"] ****************************************************
+2017-10-17 22:18:00,208 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:00,210 p=2771 u=root |  TASK [tomcatinstall : add user "tomcat"] *****************************************************
+2017-10-17 22:18:00,643 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:00,645 p=2771 u=root |  TASK [tomcatinstall : Download Tomcat] *******************************************************
+2017-10-17 22:18:04,207 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:04,209 p=2771 u=root |  TASK [tomcatinstall : Extract archive] *******************************************************
+2017-10-17 22:18:04,710 p=2771 u=root |   [WARNING]: Consider using unarchive module rather than running tar
+
+2017-10-17 22:18:04,711 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:04,713 p=2771 u=root |  TASK [tomcatinstall : Symlink install directory] *********************************************
+2017-10-17 22:18:05,059 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:05,062 p=2771 u=root |  TASK [tomcatinstall : Change ownership of Tomcat installation] *******************************
+2017-10-17 22:18:05,571 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:05,574 p=2771 u=root |  TASK [tomcatinstall : Configure Tomcat server] ***********************************************
+2017-10-17 22:18:06,395 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:06,397 p=2771 u=root |  TASK [tomcatinstall : Configure Tomcat users] ************************************************
+2017-10-17 22:18:06,867 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:06,869 p=2771 u=root |  TASK [tomcatinstall : Install Tomcat init script] ********************************************
+2017-10-17 22:18:07,358 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:07,361 p=2771 u=root |  TASK [tomcatinstall : Start Tomcat] **********************************************************
+2017-10-17 22:18:08,393 p=2771 u=root |   [WARNING]: The service (tomcat) is actually an init script but the system is managed by
+systemd
+
+2017-10-17 22:18:08,393 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:08,396 p=2771 u=root |  TASK [tomcatinstall : wait for tomcat to start] **********************************************
+2017-10-17 22:18:09,862 p=2771 u=root |  ok: [54.68.99.108]
+2017-10-17 22:18:09,865 p=2771 u=root |  TASK [tomcatinstall : Downloading artifact] **************************************************
+2017-10-17 22:18:12,171 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:12,172 p=2771 u=root |  RUNNING HANDLER [tomcatinstall : restart tomcat] *********************************************
+2017-10-17 22:18:14,263 p=2771 u=root |  changed: [54.68.99.108]
+2017-10-17 22:18:14,264 p=2771 u=root |  PLAY RECAP ***********************************************************************************
+2017-10-17 22:18:14,265 p=2771 u=root |  54.68.99.108               : ok=14   changed=13   unreachable=0    failed=0   
+2017-10-17 22:18:14,265 p=2771 u=root |  localhost                  : ok=4    changed=2    unreachable=0    failed=0   
+2017-10-18 03:25:47,230 p=3641 u=root |  PLAY [Spinup Instance] ***********************************************************************
+2017-10-18 03:25:47,252 p=3641 u=root |  TASK [Gathering Facts] ***********************************************************************
+2017-10-18 03:25:47,737 p=3641 u=root |  ok: [localhost]
+2017-10-18 03:25:47,743 p=3641 u=root |  TASK [instance : Launching an EC2 Instance] **************************************************
+2017-10-18 03:26:19,840 p=3641 u=root |  changed: [localhost -> localhost]
+2017-10-18 03:26:19,843 p=3641 u=root |  TASK [instance : Add all instance public IPs to host group] **********************************
+2017-10-18 03:26:19,998 p=3641 u=root |  changed: [localhost] => (item={u'kernel': None, u'root_device_type': u'ebs', u'private_dns_name': u'ip-172-31-16-8.us-west-2.compute.internal', u'public_ip': u'52.89.23.116', u'private_ip': u'172.31.16.8', u'id': u'i-08f9369e437d1c0f6', u'ebs_optimized': False, u'state': u'running', u'virtualization_type': u'hvm', u'architecture': u'x86_64', u'ramdisk': None, u'block_device_mapping': {u'/dev/sda1': {u'status': u'attached', u'delete_on_termination': True, u'volume_id': u'vol-0b5482f9414113baa'}}, u'key_name': u'ec2key', u'image_id': u'ami-9fa343e7', u'tenancy': u'default', u'groups': {u'sg-6f41c215': u'default'}, u'public_dns_name': u'ec2-52-89-23-116.us-west-2.compute.amazonaws.com', u'state_code': 16, u'tags': {}, u'placement': u'us-west-2a', u'ami_launch_index': u'0', u'dns_name': u'ec2-52-89-23-116.us-west-2.compute.amazonaws.com', u'region': u'us-west-2', u'launch_time': u'2017-10-18T03:25:48.000Z', u'instance_type': u't2.micro', u'root_device_name': u'/dev/sda1', u'hypervisor': u'xen'})
+2017-10-18 03:26:20,008 p=3641 u=root |  TASK [instance : Wait for SSH to come up] ****************************************************
+2017-10-18 03:27:21,174 p=3641 u=root |  ok: [localhost -> localhost] => (item={u'kernel': None, u'root_device_type': u'ebs', u'private_dns_name': u'ip-172-31-16-8.us-west-2.compute.internal', u'public_ip': u'52.89.23.116', u'private_ip': u'172.31.16.8', u'id': u'i-08f9369e437d1c0f6', u'ebs_optimized': False, u'state': u'running', u'virtualization_type': u'hvm', u'architecture': u'x86_64', u'ramdisk': None, u'block_device_mapping': {u'/dev/sda1': {u'status': u'attached', u'delete_on_termination': True, u'volume_id': u'vol-0b5482f9414113baa'}}, u'key_name': u'ec2key', u'image_id': u'ami-9fa343e7', u'tenancy': u'default', u'groups': {u'sg-6f41c215': u'default'}, u'public_dns_name': u'ec2-52-89-23-116.us-west-2.compute.amazonaws.com', u'state_code': 16, u'tags': {}, u'placement': u'us-west-2a', u'ami_launch_index': u'0', u'dns_name': u'ec2-52-89-23-116.us-west-2.compute.amazonaws.com', u'region': u'us-west-2', u'launch_time': u'2017-10-18T03:25:48.000Z', u'instance_type': u't2.micro', u'root_device_name': u'/dev/sda1', u'hypervisor': u'xen'})
+2017-10-18 03:27:21,183 p=3641 u=root |  PLAY [Install Tomcat & Deploy files] *********************************************************
+2017-10-18 03:27:21,188 p=3641 u=root |  TASK [tomcatinstall : Install Java 1.7] ******************************************************
+2017-10-18 03:27:52,566 p=3641 u=root |  changed: [52.89.23.116]
+2017-10-18 03:27:52,569 p=3641 u=root |  TASK [tomcatinstall : add group "tomcat"] ****************************************************
+2017-10-18 03:27:52,974 p=3641 u=root |  changed: [52.89.23.116]
+2017-10-18 03:27:52,977 p=3641 u=root |  TASK [tomcatinstall : add user "tomcat"] *****************************************************
+2017-10-18 03:27:53,398 p=3641 u=root |  changed: [52.89.23.116]
+2017-10-18 03:27:53,401 p=3641 u=root |  TASK [tomcatinstall : Download Tomcat] *******************************************************
+2017-10-18 03:27:56,557 p=3641 u=root |  changed: [52.89.23.116]
+2017-10-18 03:27:56,559 p=3641 u=root |  TASK [tomcatinstall : Extract archive] *******************************************************
+2017-10-18 03:27:57,054 p=3641 u=root |   [WARNING]: Consider using unarchive module rather than running tar
+
+2017-10-18 03:27:57,054 p=3641 u=root |  changed: [52.89.23.116]
+2017-10-18 03:27:57,057 p=3641 u=root |  TASK [tomcatinstall : Symlink install directory] *********************************************
+2017-10-18 03:27:57,399 p=3641 u=root |  changed: [52.89.23.116]
+2017-10-18 03:27:57,402 p=3641 u=root |  TASK [tomcatinstall : Change ownership of Tomcat installation] *******************************
+2017-10-18 03:27:57,892 p=3641 u=root |  changed: [52.89.23.116]
+2017-10-18 03:27:57,896 p=3641 u=root |  TASK [tomcatinstall : Configure Tomcat server] ***********************************************
+2017-10-18 03:27:58,586 p=3641 u=root |  changed: [52.89.23.116]
+2017-10-18 03:27:58,588 p=3641 u=root |  TASK [tomcatinstall : Configure Tomcat users] ************************************************
+2017-10-18 03:27:59,062 p=3641 u=root |  changed: [52.89.23.116]
+2017-10-18 03:27:59,065 p=3641 u=root |  TASK [tomcatinstall : Install Tomcat init script] ********************************************
+2017-10-18 03:27:59,573 p=3641 u=root |  changed: [52.89.23.116]
+2017-10-18 03:27:59,576 p=3641 u=root |  TASK [tomcatinstall : Start Tomcat] **********************************************************
+2017-10-18 03:28:00,426 p=3641 u=root |   [WARNING]: The service (tomcat) is actually an init script but the system is managed by
+systemd
+
+2017-10-18 03:28:00,426 p=3641 u=root |  changed: [52.89.23.116]
+2017-10-18 03:28:00,429 p=3641 u=root |  TASK [tomcatinstall : wait for tomcat to start] **********************************************
+2017-10-18 03:28:01,942 p=3641 u=root |  ok: [52.89.23.116]
+2017-10-18 03:28:01,944 p=3641 u=root |  TASK [tomcatinstall : Deploy War File] *******************************************************
+2017-10-18 03:28:14,262 p=3641 u=root |  fatal: [52.89.23.116]: FAILED! => {"changed": false, "failed": true, "msg": "Failed to download maven-metadata.xml because of Request failed: <urlopen error timed out>for URL http://192.168.221.129:8085/nexus/content/repositories/releases/org/sonatype/com/simplewebapp/maven-metadata.xml"}
+2017-10-18 03:28:14,263 p=3641 u=root |  RUNNING HANDLER [tomcatinstall : restart tomcat] *********************************************
+2017-10-18 03:28:14,264 p=3641 u=root |  	to retry, use: --limit @/home/centos/ansible_demo/cd_project/project/site.retry
+
+2017-10-18 03:28:14,264 p=3641 u=root |  PLAY RECAP ***********************************************************************************
+2017-10-18 03:28:14,264 p=3641 u=root |  52.89.23.116               : ok=12   changed=11   unreachable=0    failed=1   
+2017-10-18 03:28:14,264 p=3641 u=root |  localhost                  : ok=4    changed=2    unreachable=0    failed=0   
+2017-10-18 03:36:11,495 p=4144 u=root |  PLAY [Spinup Instance] ***********************************************************************
+2017-10-18 03:36:11,517 p=4144 u=root |  TASK [Gathering Facts] ***********************************************************************
+2017-10-18 03:36:12,008 p=4144 u=root |  ok: [localhost]
+2017-10-18 03:36:12,014 p=4144 u=root |  TASK [instance : Launching an EC2 Instance] **************************************************
+2017-10-18 03:36:28,665 p=4144 u=root |  changed: [localhost -> localhost]
+2017-10-18 03:36:28,669 p=4144 u=root |  TASK [instance : Add all instance public IPs to host group] **********************************
+2017-10-18 03:36:28,691 p=4144 u=root |  changed: [localhost] => (item={u'kernel': None, u'root_device_type': u'ebs', u'private_dns_name': u'ip-172-31-23-126.us-west-2.compute.internal', u'public_ip': u'54.148.113.8', u'private_ip': u'172.31.23.126', u'id': u'i-04666966851164c3d', u'ebs_optimized': False, u'state': u'running', u'virtualization_type': u'hvm', u'architecture': u'x86_64', u'ramdisk': None, u'block_device_mapping': {u'/dev/sda1': {u'status': u'attached', u'delete_on_termination': True, u'volume_id': u'vol-0eb903ab50fa1817c'}}, u'key_name': u'ec2key', u'image_id': u'ami-9fa343e7', u'tenancy': u'default', u'groups': {u'sg-6f41c215': u'default'}, u'public_dns_name': u'ec2-54-148-113-8.us-west-2.compute.amazonaws.com', u'state_code': 16, u'tags': {}, u'placement': u'us-west-2a', u'ami_launch_index': u'0', u'dns_name': u'ec2-54-148-113-8.us-west-2.compute.amazonaws.com', u'region': u'us-west-2', u'launch_time': u'2017-10-18T03:36:13.000Z', u'instance_type': u't2.micro', u'root_device_name': u'/dev/sda1', u'hypervisor': u'xen'})
+2017-10-18 03:36:28,702 p=4144 u=root |  TASK [instance : Wait for SSH to come up] ****************************************************
+2017-10-18 03:37:28,996 p=4144 u=root |  ok: [localhost -> localhost] => (item={u'kernel': None, u'root_device_type': u'ebs', u'private_dns_name': u'ip-172-31-23-126.us-west-2.compute.internal', u'public_ip': u'54.148.113.8', u'private_ip': u'172.31.23.126', u'id': u'i-04666966851164c3d', u'ebs_optimized': False, u'state': u'running', u'virtualization_type': u'hvm', u'architecture': u'x86_64', u'ramdisk': None, u'block_device_mapping': {u'/dev/sda1': {u'status': u'attached', u'delete_on_termination': True, u'volume_id': u'vol-0eb903ab50fa1817c'}}, u'key_name': u'ec2key', u'image_id': u'ami-9fa343e7', u'tenancy': u'default', u'groups': {u'sg-6f41c215': u'default'}, u'public_dns_name': u'ec2-54-148-113-8.us-west-2.compute.amazonaws.com', u'state_code': 16, u'tags': {}, u'placement': u'us-west-2a', u'ami_launch_index': u'0', u'dns_name': u'ec2-54-148-113-8.us-west-2.compute.amazonaws.com', u'region': u'us-west-2', u'launch_time': u'2017-10-18T03:36:13.000Z', u'instance_type': u't2.micro', u'root_device_name': u'/dev/sda1', u'hypervisor': u'xen'})
+2017-10-18 03:37:29,002 p=4144 u=root |  PLAY [Install Tomcat & Deploy files] *********************************************************
+2017-10-18 03:37:29,007 p=4144 u=root |  TASK [tomcatinstall : Install Java 1.7] ******************************************************
+2017-10-18 03:37:58,690 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:37:58,693 p=4144 u=root |  TASK [tomcatinstall : add group "tomcat"] ****************************************************
+2017-10-18 03:37:59,094 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:37:59,097 p=4144 u=root |  TASK [tomcatinstall : add user "tomcat"] *****************************************************
+2017-10-18 03:37:59,526 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:37:59,529 p=4144 u=root |  TASK [tomcatinstall : Download Tomcat] *******************************************************
+2017-10-18 03:38:02,630 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:38:02,633 p=4144 u=root |  TASK [tomcatinstall : Extract archive] *******************************************************
+2017-10-18 03:38:03,130 p=4144 u=root |   [WARNING]: Consider using unarchive module rather than running tar
+
+2017-10-18 03:38:03,130 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:38:03,133 p=4144 u=root |  TASK [tomcatinstall : Symlink install directory] *********************************************
+2017-10-18 03:38:03,472 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:38:03,475 p=4144 u=root |  TASK [tomcatinstall : Change ownership of Tomcat installation] *******************************
+2017-10-18 03:38:03,979 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:38:03,982 p=4144 u=root |  TASK [tomcatinstall : Configure Tomcat server] ***********************************************
+2017-10-18 03:38:04,650 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:38:04,652 p=4144 u=root |  TASK [tomcatinstall : Configure Tomcat users] ************************************************
+2017-10-18 03:38:05,115 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:38:05,118 p=4144 u=root |  TASK [tomcatinstall : Install Tomcat init script] ********************************************
+2017-10-18 03:38:05,587 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:38:05,591 p=4144 u=root |  TASK [tomcatinstall : Start Tomcat] **********************************************************
+2017-10-18 03:38:06,453 p=4144 u=root |   [WARNING]: The service (tomcat) is actually an init script but the system is managed by
+systemd
+
+2017-10-18 03:38:06,453 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:38:06,456 p=4144 u=root |  TASK [tomcatinstall : wait for tomcat to start] **********************************************
+2017-10-18 03:38:07,969 p=4144 u=root |  ok: [54.148.113.8]
+2017-10-18 03:38:07,972 p=4144 u=root |  TASK [tomcatinstall : Deploy War File] *******************************************************
+2017-10-18 03:38:10,264 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:38:10,265 p=4144 u=root |  RUNNING HANDLER [tomcatinstall : restart tomcat] *********************************************
+2017-10-18 03:38:12,239 p=4144 u=root |  changed: [54.148.113.8]
+2017-10-18 03:38:12,240 p=4144 u=root |  PLAY RECAP ***********************************************************************************
+2017-10-18 03:38:12,241 p=4144 u=root |  54.148.113.8               : ok=14   changed=13   unreachable=0    failed=0   
+2017-10-18 03:38:12,241 p=4144 u=root |  localhost                  : ok=4    changed=2    unreachable=0    failed=0   
+2017-10-18 03:42:07,830 p=4414 u=root |  PLAY [Spinup Instance] ***********************************************************************
+2017-10-18 03:42:07,852 p=4414 u=root |  TASK [Gathering Facts] ***********************************************************************
+2017-10-18 03:42:08,299 p=4414 u=root |  ok: [localhost]
+2017-10-18 03:42:08,305 p=4414 u=root |  TASK [instance : Launching an EC2 Instance] **************************************************
+2017-10-18 03:42:30,137 p=4414 u=root |  changed: [localhost -> localhost]
+2017-10-18 03:42:30,140 p=4414 u=root |  TASK [instance : Add all instance public IPs to host group] **********************************
+2017-10-18 03:42:30,164 p=4414 u=root |  changed: [localhost] => (item={u'kernel': None, u'root_device_type': u'ebs', u'private_dns_name': u'ip-172-31-29-208.us-west-2.compute.internal', u'public_ip': u'54.69.149.197', u'private_ip': u'172.31.29.208', u'id': u'i-034264dcf93269dd8', u'ebs_optimized': False, u'state': u'running', u'virtualization_type': u'hvm', u'architecture': u'x86_64', u'ramdisk': None, u'block_device_mapping': {u'/dev/sda1': {u'status': u'attached', u'delete_on_termination': True, u'volume_id': u'vol-0f121b52f0abf850c'}}, u'key_name': u'ec2key', u'image_id': u'ami-9fa343e7', u'tenancy': u'default', u'groups': {u'sg-6f41c215': u'default'}, u'public_dns_name': u'ec2-54-69-149-197.us-west-2.compute.amazonaws.com', u'state_code': 16, u'tags': {}, u'placement': u'us-west-2a', u'ami_launch_index': u'0', u'dns_name': u'ec2-54-69-149-197.us-west-2.compute.amazonaws.com', u'region': u'us-west-2', u'launch_time': u'2017-10-18T03:42:09.000Z', u'instance_type': u't2.micro', u'root_device_name': u'/dev/sda1', u'hypervisor': u'xen'})
+2017-10-18 03:42:30,174 p=4414 u=root |  TASK [instance : Wait for SSH to come up] ****************************************************
+2017-10-18 03:43:30,468 p=4414 u=root |  ok: [localhost -> localhost] => (item={u'kernel': None, u'root_device_type': u'ebs', u'private_dns_name': u'ip-172-31-29-208.us-west-2.compute.internal', u'public_ip': u'54.69.149.197', u'private_ip': u'172.31.29.208', u'id': u'i-034264dcf93269dd8', u'ebs_optimized': False, u'state': u'running', u'virtualization_type': u'hvm', u'architecture': u'x86_64', u'ramdisk': None, u'block_device_mapping': {u'/dev/sda1': {u'status': u'attached', u'delete_on_termination': True, u'volume_id': u'vol-0f121b52f0abf850c'}}, u'key_name': u'ec2key', u'image_id': u'ami-9fa343e7', u'tenancy': u'default', u'groups': {u'sg-6f41c215': u'default'}, u'public_dns_name': u'ec2-54-69-149-197.us-west-2.compute.amazonaws.com', u'state_code': 16, u'tags': {}, u'placement': u'us-west-2a', u'ami_launch_index': u'0', u'dns_name': u'ec2-54-69-149-197.us-west-2.compute.amazonaws.com', u'region': u'us-west-2', u'launch_time': u'2017-10-18T03:42:09.000Z', u'instance_type': u't2.micro', u'root_device_name': u'/dev/sda1', u'hypervisor': u'xen'})
+2017-10-18 03:43:30,475 p=4414 u=root |  PLAY [Install Tomcat & Deploy files] *********************************************************
+2017-10-18 03:43:30,481 p=4414 u=root |  TASK [tomcatinstall : Install Java 1.7] ******************************************************
+2017-10-18 03:44:02,649 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:02,652 p=4414 u=root |  TASK [tomcatinstall : add group "tomcat"] ****************************************************
+2017-10-18 03:44:03,073 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:03,076 p=4414 u=root |  TASK [tomcatinstall : add user "tomcat"] *****************************************************
+2017-10-18 03:44:03,504 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:03,507 p=4414 u=root |  TASK [tomcatinstall : Download Tomcat] *******************************************************
+2017-10-18 03:44:06,560 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:06,563 p=4414 u=root |  TASK [tomcatinstall : Extract archive] *******************************************************
+2017-10-18 03:44:07,060 p=4414 u=root |   [WARNING]: Consider using unarchive module rather than running tar
+
+2017-10-18 03:44:07,060 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:07,062 p=4414 u=root |  TASK [tomcatinstall : Symlink install directory] *********************************************
+2017-10-18 03:44:07,410 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:07,413 p=4414 u=root |  TASK [tomcatinstall : Change ownership of Tomcat installation] *******************************
+2017-10-18 03:44:07,921 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:07,924 p=4414 u=root |  TASK [tomcatinstall : Configure Tomcat server] ***********************************************
+2017-10-18 03:44:08,604 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:08,606 p=4414 u=root |  TASK [tomcatinstall : Configure Tomcat users] ************************************************
+2017-10-18 03:44:09,076 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:09,078 p=4414 u=root |  TASK [tomcatinstall : Install Tomcat init script] ********************************************
+2017-10-18 03:44:09,560 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:09,563 p=4414 u=root |  TASK [tomcatinstall : Start Tomcat] **********************************************************
+2017-10-18 03:44:10,450 p=4414 u=root |   [WARNING]: The service (tomcat) is actually an init script but the system is managed by
+systemd
+
+2017-10-18 03:44:10,450 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:10,453 p=4414 u=root |  TASK [tomcatinstall : wait for tomcat to start] **********************************************
+2017-10-18 03:44:11,951 p=4414 u=root |  ok: [54.69.149.197]
+2017-10-18 03:44:11,953 p=4414 u=root |  TASK [tomcatinstall : Deploy War File] *******************************************************
+2017-10-18 03:44:14,350 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:14,351 p=4414 u=root |  RUNNING HANDLER [tomcatinstall : restart tomcat] *********************************************
+2017-10-18 03:44:16,349 p=4414 u=root |  changed: [54.69.149.197]
+2017-10-18 03:44:16,350 p=4414 u=root |  PLAY RECAP ***********************************************************************************
+2017-10-18 03:44:16,350 p=4414 u=root |  54.69.149.197              : ok=14   changed=13   unreachable=0    failed=0   
+2017-10-18 03:44:16,350 p=4414 u=root |  localhost                  : ok=4    changed=2    unreachable=0    failed=0   

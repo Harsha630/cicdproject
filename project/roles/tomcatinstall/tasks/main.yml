@@ -53,4 +53,4 @@
   wait_for: port={{http_port}}
 
 - name: Deploy War File
-  maven_artifact: group_id=org.sonatype.com artifact_id=simplewebapp extension=war repository_url=http://ec2-52-36-167-39.us-west-2.compute.amazonaws.com:8080/nexus/content/repositories/releases/ username=admin password=admin123  dest=/usr/share/tomcat/webapps/
+  maven_artifact: group_id=org.sonatype.com artifact_id=simplewebapp extension=war repository_url=http://ec2-34-214-55-242.us-west-2.compute.amazonaws.com:8080/nexus/content/repositories/releases/ username=admin password=admin123  dest=/usr/share/tomcat/webapps/
